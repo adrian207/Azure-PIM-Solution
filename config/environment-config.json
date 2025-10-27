@@ -1,0 +1,189 @@
+{
+  "environment": "production",
+  "organization": {
+    "name": "Your Organization Name",
+    "shortName": "yourorg",
+    "primaryContact": "it-security@yourorg.com",
+    "region": "eastus",
+    "costCenter": "IT-SECURITY",
+    "department": "Information Security",
+    "budgetCode": "BUDGET-2024"
+  },
+  "tags": {
+    "Environment": "Production",
+    "Project": "PIM Solution",
+    "Owner": "Information Security Team",
+    "BusinessUnit": "IT Operations",
+    "DataClassification": "Confidential",
+    "ComplianceRequirement": "SOC2,ISO27001,HIPAA,GDPR",
+    "AutoManaged": "true",
+    "ManagedBy": "Azure PIM Solution v1.0"
+  },
+  "azure": {
+    "subscription": {
+      "name": "Azure Subscription Name",
+      "id": ""
+    },
+    "resourceGroup": {
+      "name": "rg-pim-solution",
+      "location": "eastus"
+    },
+    "storage": {
+      "accountName": "pimlogs[yourorg]",
+      "sku": "Standard_GRS",
+      "supportsHttpsTrafficOnly": true,
+      "accessTier": "Hot"
+    },
+    "keyVault": {
+      "name": "",
+      "useExisting": true,
+      "comment": "Leave 'name' empty to auto-create, or specify existing Key Vault name"
+    }
+  },
+  "pim": {
+    "roles": {
+      "productionAdministrator": {
+        "name": "Production Administrator",
+        "description": "Full administrative access to production systems",
+        "approvalRequired": true,
+        "approvers": [
+          "manager@yourorg.com",
+          "system-owner@yourorg.com"
+        ],
+        "maxDurationHours": 4,
+        "mfaRequired": true,
+        "justificationRequired": true
+      },
+      "developmentAdministrator": {
+        "name": "Development Environment Administrator",
+        "description": "Administrative access to development systems",
+        "approvalRequired": true,
+        "approvers": [
+          "team-lead@yourorg.com"
+        ],
+        "maxDurationHours": 24,
+        "mfaRequired": true,
+        "justificationRequired": true
+      },
+      "securityAuditor": {
+        "name": "Security Auditor",
+        "description": "Read-only access to security logs and audit trails",
+        "approvalRequired": true,
+        "approvers": [
+          "ciso@yourorg.com"
+        ],
+        "maxDurationHours": 336,
+        "mfaRequired": true,
+        "justificationRequired": true
+      }
+    },
+    "approvalWorkflows": {
+      "level1": {
+        "autoApprove": true,
+        "conditions": {
+          "riskScoreMax": 5,
+          "requestedWithin90Days": true,
+          "standardBusinessHours": true,
+          "trainingCompleted": true
+        }
+      },
+      "level2": {
+        "autoApprove": false,
+        "requireApproval": [
+          "manager"
+        ],
+        "approvalTimeframeHours": 4,
+        "autoEscalationHours": 8
+      },
+      "level3": {
+        "autoApprove": false,
+        "requireApproval": [
+          "manager",
+          "resourceOwner"
+        ],
+        "approvalTimeframeHours": 4,
+        "autoEscalationHours": 8
+      },
+      "level4": {
+        "autoApprove": false,
+        "requireApproval": [
+          "cLevel"
+        ],
+        "approvalTimeframeHours": 8,
+        "autoEscalationHours": 16
+      }
+    }
+  },
+  "archival": {
+    "retentionYears": 7,
+    "tiers": {
+      "hot": {
+        "name": "Hot Storage",
+        "durationDays": 365,
+        "accessTier": "Hot"
+      },
+      "cool": {
+        "name": "Cool Storage",
+        "durationDays": 1095,
+        "accessTier": "Cool"
+      },
+      "archive": {
+        "name": "Archive Storage",
+        "durationDays": 2555,
+        "accessTier": "Archive"
+      }
+    },
+    "lifecycleManagement": {
+      "enabled": true,
+      "blobContainers": [
+        "audit-logs",
+        "evidence",
+        "config-snapshots"
+      ]
+    }
+  },
+  "compliance": {
+    "frameworks": [
+      "SOC2",
+      "ISO27001",
+      "HIPAA",
+      "GDPR",
+      "PCIDSS"
+    ],
+    "evidenceCollection": {
+      "enabled": true,
+      "automatedReports": {
+        "daily": true,
+        "weekly": true,
+        "monthly": true,
+        "quarterly": true
+      }
+    }
+  },
+  "monitoring": {
+    "alerts": {
+      "enabled": true,
+      "recipients": [
+        "security-team@yourorg.com",
+        "compliance@yourorg.com"
+      ]
+    },
+    "logAnalytics": {
+      "workspaceName": "law-pim-solution",
+      "retentionDays": 90
+    }
+  },
+  "powerbi": {
+    "workspaceName": "PIM Solution Reporting",
+    "refreshSchedule": {
+      "frequency": "Hourly",
+      "times": [
+        "00:00",
+        "06:00",
+        "12:00",
+        "18:00"
+      ]
+    }
+  }
+}
+

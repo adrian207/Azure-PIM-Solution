@@ -1,0 +1,38 @@
+# Azure PIM Solution .gitignore
+
+# Temporary files
+temp-*.json
+temp-*.txt
+temp-*.ps1
+deployment.log
+*.log
+
+# Configuration files with sensitive data (keep template, ignore production)
+# Uncomment to ignore production configs:
+# config/production-config.json
+# config/*-production.json
+
+# Azure credentials and secrets
+*.publishsettings
+.azure/
+Azure-Subscription.credentials
+
+# PowerShell module cache
+.psget/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*~
+
