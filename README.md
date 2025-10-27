@@ -307,6 +307,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
+## 🗺️ Roadmap
+
+Check out our [Product Roadmap](ROADMAP.md) to see what's coming next:
+- **v1.1.0** - Enhanced Security & Threat Detection
+- **v1.2.0** - Performance & Scalability Improvements
+- **v2.0.0** - Enhanced User Experience (Mobile App, Web Portal)
+- **v2.1.0** - Advanced Governance & Compliance
+
+Have ideas? [Open an issue](https://github.com/yourusername/azure-pim-solution/issues) or contribute!
+
+---
+
 ## 🙏 Acknowledgments
 
 - Microsoft Azure and Azure AD teams
