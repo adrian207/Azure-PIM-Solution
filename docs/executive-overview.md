@@ -161,7 +161,7 @@ Instead of monthly or quarterly compliance snapshots, organizations maintain con
 The solution can grow with your organization, supporting everything from small teams to global enterprises without requiring complete replacement.
 
 **7. Comprehensive Documentation**
-Following the Minto Pyramid Principle, documentation is structured for clarity and accessibility, ensuring stakeholders at all levels can understand the solution.
+Documentation is structured for clarity and accessibility, ensuring stakeholders at all levels can understand the solution.
 
 ---
 

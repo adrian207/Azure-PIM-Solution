@@ -121,6 +121,11 @@ cd scripts
 | Document | Description | Time |
 |----------|-------------|------|
 | [Architecture Overview](docs/design/architecture-overview.md) | System design and components | 45 min |
+| [Zero-Trust Architecture](docs/security/zero-trust-architecture.md) | Zero-trust security framework | 1.5 hours |
+| [Automated Incident Response](docs/security/automated-incident-response.md) | Security automation & response | 1 hour |
+| [Credential Rotation](docs/security/credential-rotation-automation.md) | Automated credential rotation | 1 hour |
+| [Redis Caching](docs/performance/distributed-caching-redis.md) | Distributed caching for performance | 45 min |
+| [PASS Dashboard](docs/reporting/pass-dashboard.md) | Privileged Access Security Score | 1 hour |
 | [Integration Guide](docs/integration-guide.md) | API integration and automation | 1 hour |
 | [Deployment Guide](docs/operations/deployment-guide.md) | Technical deployment instructions | 2 hours |
 | [Script Documentation](scripts/README-SCRIPTS.md) | Automated deployment scripts | 30 min |
@@ -132,6 +137,8 @@ cd scripts
 | [Compliance Framework](docs/compliance-framework.md) | Regulatory requirements mapping | 1 hour |
 | [Log Archival Strategy](docs/operations/log-archival-strategy.md) | Retention and archival procedures | 45 min |
 | [Security Policies](docs/design/security-policies.md) | Access control definitions | 1 hour |
+| [Zero-Trust Architecture](docs/security/zero-trust-architecture.md) | Zero-trust security framework | 1.5 hours |
+| [PASS Dashboard](docs/reporting/pass-dashboard.md) | Privileged Access Security Score | 1 hour |
 
 ### For Operations Teams
 
@@ -139,6 +146,7 @@ cd scripts
 |----------|-------------|------|
 | [Maintenance Procedures](docs/operations/maintenance-procedures.md) | Ongoing management tasks | 30 min |
 | [Power BI Solution](docs/reporting/powerbi-solution.md) | Dashboard creation and metrics | 2 hours |
+| [PASS Dashboard](docs/reporting/pass-dashboard.md) | Security scoring and improvement tracking | 1 hour |
 | [Existing Infrastructure](docs/operations/existing-infrastructure.md) | Using existing Azure resources | 30 min |
 
 ---
@@ -260,7 +268,7 @@ The solution is fully configurable through `config/environment-config.json`:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) first.
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Documentation Style Guide](docs/CONTRIBUTING-DOCUMENTATION.md) first.
 
 **How to contribute:**
 1. Fork the repository

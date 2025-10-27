@@ -23,11 +23,9 @@ Write-Host ""
 
 # Import utilities
 Import-Module ..\utilities\Anomaly-Detector.ps1 -Force
-Import-Module ..\utilities\Risk-Calculator.ps1 -Force
 
 # Initialize
 $anomalyDetector = [AnomalyDetector]::new()
-$riskCalculator = [RiskCalculator]::new()
 
 Write-Host "Collecting access events from last $DaysToAnalyze days..." -ForegroundColor Yellow
 

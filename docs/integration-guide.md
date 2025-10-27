@@ -504,6 +504,388 @@ Benefits:
 
 ---
 
+## How to Build: Create Your First Integration (15 Minutes)
+
+This section provides step-by-step instructions to build a real integration with Azure PIM. Follow these practical examples to connect external systems.
+
+### Prerequisites
+
+**Required:**
+- Azure PIM already deployed
+- Service principal or app registration
+- API access credentials
+- PowerShell or your preferred integration language
+
+**Estimated Time:** 15-45 minutes depending on complexity
+
+---
+
+### Example 1: Ticketing System Integration (ServiceNow/Jira)
+
+**What You're Building:** Automatically create PIM access requests from tickets.
+
+#### Step 1: Create App Registration
+
+```powershell
+# Connect to Azure AD
+Connect-AzureAD
+
+# Create application registration
+$app = New-AzureADApplication -DisplayName "PIM-Ticketing-Integration" `
+    -HomePage "https://pim.company.com" `
+    -ReplyUrls @("https://pim.company.com/callback")
+
+Write-Host "Application ID: $($app.AppId)" -ForegroundColor Cyan
+
+# Create service principal
+$sp = New-AzureADServicePrincipal -AppId $app.AppId
+
+# Grant API permissions
+$pimApiId = "api://[your-pim-api-id]"
+$pimResourceAccess = New-Object "Microsoft.Open.AzureAD.Model.ResourceAccess" -Property @{
+    Id = "[permission-id]"
+    Type = "Role"
+}
+Set-AzureADApplication -ObjectId $app.ObjectId -RequiredResourceAccess @(@{
+    ResourceAppId = $pimApiId
+    ResourceAccess = @($pimResourceAccess)
+})
+```
+
+#### Step 2: Get Access Token
+
+```powershell
+# PowerShell function to get access token
+function Get-PIMAccessToken {
+    param(
+        [string]$TenantId,
+        [string]$ClientId,
+        [string]$ClientSecret
+    )
+    
+    $body = @{
+        grant_type = "client_credentials"
+        client_id = $ClientId
+        client_secret = $ClientSecret
+        scope = "api://[your-pim-api-id]/.default"
+    }
+    
+    $tokenResponse = Invoke-RestMethod -Method Post `
+        -Uri "https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token" `
+        -Body $body
+    
+    return $tokenResponse.access_token
+}
+
+# Usage
+$token = Get-PIMAccessToken -TenantId "your-tenant-id" `
+    -ClientId $app.AppId `
+    -ClientSecret "your-secret"
+```
+
+#### Step 3: Create Access Request via API
+
+```powershell
+# Function to create PIM access request
+function New-PIMAccessRequest {
+    param(
+        [string]$AccessToken,
+        [string]$UserPrincipalName,
+        [string]$Role,
+        [int]$DurationHours = 4,
+        [string]$Justification,
+        [string]$TicketId
+    )
+    
+    $headers = @{
+        Authorization = "Bearer $AccessToken"
+        "Content-Type" = "application/json"
+    }
+    
+    $body = @{
+        user = $UserPrincipalName
+        role = $Role
+        duration = $DurationHours
+        justification = $Justification
+        ticket_id = $TicketId
+    } | ConvertTo-Json
+    
+    try {
+        $response = Invoke-RestMethod `
+            -Method Post `
+            -Uri "https://api.pim.company.com/v1/access-requests" `
+            -Headers $headers `
+            -Body $body
+        
+        Write-Host "✅ Access request created: $($response.request_id)" -ForegroundColor Green
+        return $response
+    } catch {
+        Write-Host "❌ Failed: $($_.Exception.Message)" -ForegroundColor Red
+        return $null
+    }
+}
+```
+
+#### Step 4: Complete Integration Example
+
+```powershell
+# Full ticketing system integration
+$ticketId = "INC-12345"
+$userEmail = "john.smith@company.com"
+$role = "Production Administrator"
+$justification = "Issue reported in ticket $ticketId - requires production access to troubleshoot"
+
+# Get token
+$token = Get-PIMAccessToken -TenantId $tenantId -ClientId $clientId -ClientSecret $secret
+
+# Create request
+$request = New-PIMAccessRequest `
+    -AccessToken $token `
+    -UserPrincipalName $userEmail `
+    -Role $role `
+    -DurationHours 4 `
+    -Justification $justification `
+    -TicketId $ticketId
+
+if ($request) {
+    Write-Host "Access request ID: $($request.request_id)" -ForegroundColor Cyan
+    Write-Host "Status: $($request.status)" -ForegroundColor Cyan
+}
+```
+
+---
+
+### Example 2: HR System Integration (Auto-Revoke on Termination)
+
+**What You're Building:** Automatically revoke access when employee is terminated.
+
+#### Step 1: Monitor HR System Events
+
+```powershell
+# PowerShell script to check HR system for terminations
+function Check-HRSystemTerminations {
+    # This would connect to your HR system
+    # For demo, using mock data
+    
+    $terminations = @(
+        @{
+            EmployeeId = "12345"
+            UserPrincipalName = "terminated.user@company.com"
+            TerminationDate = Get-Date
+            Reason = "Voluntary resignation"
+        }
+    )
+    
+    return $terminations
+}
+
+# Run check every hour
+while ($true) {
+    $terminations = Check-HRSystemTerminations
+    
+    foreach ($termination in $terminations) {
+        # Revoke PIM access
+        Revoke-PIMAccess -UserPrincipalName $termination.UserPrincipalName `
+            -Reason "Employee termination - $($termination.Reason)"
+    }
+    
+    Start-Sleep -Seconds 3600  # Wait 1 hour
+}
+```
+
+#### Step 2: Revoke PIM Access Function
+
+```powershell
+function Revoke-PIMAccess {
+    param(
+        [string]$AccessToken,
+        [string]$UserPrincipalName,
+        [string]$Reason
+    )
+    
+    $headers = @{
+        Authorization = "Bearer $AccessToken"
+        "Content-Type" = "application/json"
+    }
+    
+    $body = @{
+        user = $UserPrincipalName
+        reason = $Reason
+        revoke_immediately = $true
+    } | ConvertTo-Json
+    
+    try {
+        $response = Invoke-RestMethod `
+            -Method Post `
+            -Uri "https://api.pim.company.com/v1/users/revoke-access" `
+            -Headers $headers `
+            -Body $body
+        
+        Write-Host "✅ Access revoked for: $UserPrincipalName" -ForegroundColor Green
+        return $response
+    } catch {
+        Write-Host "❌ Revocation failed: $($_.Exception.Message)" -ForegroundColor Red
+        return $null
+    }
+}
+```
+
+---
+
+### Example 3: PowerShell Automation Integration
+
+**What You're Building:** Schedule PIM operations with PowerShell scripts.
+
+#### Step 1: Create Scheduled Task
+
+```powershell
+# Function to request access before running script
+function Request-PIMAccessBeforeScript {
+    param(
+        [string]$RequiredRole,
+        [string]$Reason,
+        [int]$DurationMinutes = 60
+    )
+    
+    # Get access
+    Write-Host "Requesting access to $RequiredRole..." -ForegroundColor Cyan
+    $access = Request-PIMAccess -Role $RequiredRole -Reason $Reason -DurationMinutes $DurationMinutes
+    
+    if ($access.Status -eq "Granted") {
+        Write-Host "✅ Access granted, running script..." -ForegroundColor Green
+        
+        # Your privileged operations here
+        # ...
+        
+        # Access automatically expires after duration
+        Write-Host "Script complete, access will expire in $DurationMinutes minutes" -ForegroundColor Yellow
+    } else {
+        Write-Host "❌ Access denied: $($access.Reason)" -ForegroundColor Red
+        exit 1
+    }
+}
+
+# Usage in your scripts
+Request-PIMAccessBeforeScript `
+    -RequiredRole "Production Administrator" `
+    -Reason "Scheduled database maintenance" `
+    -DurationMinutes 120
+```
+
+#### Step 2: Automated PIM Tasks
+
+```powershell
+# Schedule daily access reviews
+$action = New-ScheduledTaskAction `
+    -Execute "PowerShell.exe" `
+    -Argument "-File C:\Scripts\PIM-DailyReview.ps1"
+
+$trigger = New-ScheduledTaskTrigger -Daily -At 9AM
+
+Register-ScheduledTask `
+    -TaskName "PIM-Daily-Access-Review" `
+    -Action $action `
+    -Trigger $trigger `
+    -Description "Runs daily access reviews"
+
+Write-Host "✅ Scheduled task created" -ForegroundColor Green
+```
+
+---
+
+### Example 4: Event-Driven Integration (Azure Logic Apps)
+
+**What You're Building:** Respond to PIM events automatically.
+
+#### Step 1: Configure Event Grid
+
+```powershell
+# Create event grid subscription
+$eventGridTopic = "pim-events-topic"
+
+# Subscribe to PIM events
+New-AzEventGridSubscription `
+    -ResourceGroup "pim-rg" `
+    -TopicName $eventGridTopic `
+    -EventSubscriptionName "PIM-Access-EventSub" `
+    -EndpointType "EventHub" `
+    -EndpointId "[your-event-hub-id]"
+
+Write-Host "✅ Event subscription created" -ForegroundColor Green
+```
+
+#### Step 2: Create Logic App Workflow
+
+```
+Portal Steps:
+1. Navigate to: Azure Portal → Logic Apps → Create
+2. Configure:
+   - Name: "PIM-Event-Handler"
+   - Region: Your region
+   - Enable: On
+3. Click "Create"
+4. Once created, click "Edit"
+5. Add trigger: "When an event arrives" (Event Grid)
+6. Connect to your Event Grid
+7. Add condition: Check event type
+8. Add action based on event type
+
+For "Access Granted" event:
+- Send notification email
+- Update monitoring dashboard
+- Log to SIEM
+
+For "Access Revoked" event:
+- Notify security team
+- Update access logs
+
+Time: 15 minutes
+```
+
+---
+
+### Verification: Test Your Integration
+
+```powershell
+# Test integration end-to-end
+Write-Host "Testing PIM integration..." -ForegroundColor Cyan
+
+# 1. Get access token
+$token = Get-PIMAccessToken -TenantId $tenantId -ClientId $clientId -ClientSecret $secret
+if ($token) {
+    Write-Host "✅ Token obtained" -ForegroundColor Green
+} else {
+    Write-Host "❌ Token failed" -ForegroundColor Red
+    exit 1
+}
+
+# 2. Create test request
+$testRequest = New-PIMAccessRequest `
+    -AccessToken $token `
+    -UserPrincipalName "test@company.com" `
+    -Role "Test Role" `
+    -DurationHours 1 `
+    -Justification "Integration test"
+
+if ($testRequest) {
+    Write-Host "✅ Request creation successful" -ForegroundColor Green
+} else {
+    Write-Host "❌ Request creation failed" -ForegroundColor Red
+    exit 1
+}
+
+# 3. Verify request status
+$requestStatus = Get-PIMRequestStatus -AccessToken $token -RequestId $testRequest.request_id
+Write-Host "Request status: $($requestStatus.status)" -ForegroundColor Cyan
+
+# Cleanup test request
+Revoke-PIMAccess -AccessToken $token -UserPrincipalName "test@company.com" -Reason "Test cleanup"
+
+Write-Host "`n✅ Integration test complete!" -ForegroundColor Green
+```
+
+---
+
 ## Integration Testing
 
 ### Testing Approach
