@@ -179,7 +179,7 @@ if (-not $keyVault) {
             -SoftDeleteRetentionInDays 7
         
         # Set access policy
-        Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $currentUser.Id -PermissionsToKeys all -chipPermissionsToSecrets all -PermissionsToCertificates all
+        Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $currentUser.Id -PermissionsToKeys all -PermissionsToSecrets all -PermissionsToCertificates all
         
         # Apply tags to new Key Vault
         Update-AzTag -ResourceId $keyVault.ResourceId -Tag $tags -Operation Replace | Out-Null
