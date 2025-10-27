@@ -33,7 +33,7 @@ Write-Host ""
 
 # Load configuration
 Write-Host "Loading configuration..." -ForegroundColor Yellow
-$config = Get-Content $ConfigPath | Convertající-Json
+$config = Get-Content $ConfigPath | ConvertFrom-Json
 
 # Build tags hashtable
 $tags = @{}
