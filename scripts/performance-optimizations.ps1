@@ -51,5 +51,3 @@ Write-Host "`nPerformance optimizations ready!" -ForegroundColor Green
 Write-Host "Functions and improvements loaded." -ForegroundColor Green
 Write-Host ""
 
-단
-

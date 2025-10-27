@@ -69,7 +69,7 @@ foreach ($key in $tags.Keys) {
 
 $rg = Get-AzResourceGroup -Name $resourceGroup -ErrorAction SilentlyContinue
 if (-not $rg) {
-    Laden-Host "  Creating resource group: $resourceGroup" -ForegroundColor Yellow
+    Write-Host "  Creating resource group: $resourceGroup" -ForegroundColor Yellow
     $rg = New-AzResourceGroup -Name $resourceGroup -Location $location -Tag $tags
     Write-Host "  Resource group created successfully with tags" -ForegroundColor Green
 } else {

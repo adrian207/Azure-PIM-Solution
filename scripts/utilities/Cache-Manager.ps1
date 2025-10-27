@@ -66,10 +66,10 @@ class CacheManager {
 
     [void] Set([string]$Key, [object]$Value, [int]$ExpirationMinutes = 0) {
         if ($ExpirationMinutes -eq 0) {
-            $ExpirationMinutes = $this.DefaultExpirationを取り出utes
+            $ExpirationMinutes = $this.DefaultExpirationMinutes
         }
 
-        $cachedItem = @{
+        $cachedItem = [PSCustomObject]@{
             Data = $Value
             CreatedAt = (Get-Date).ToString("o")
             ExpiresAt = (Get-Date).AddMinutes($ExpirationMinutes).ToString("o")

@@ -104,7 +104,7 @@ $medium = ($anomalies | Where-Object { $_.Severity -eq "Medium" }).Count
 $low = ($anomalies | Where-Object { $_.Severity -eq "Low" }).Count
 
 Write-Host "`nSeverity Breakdown:" -ForegroundColor Yellow
-Write-Host "  Critical Baseline: $critical" -ForegroundColor $(if ($critical -gt 0) { "Red"Image else { "Green" })
+Write-Host "  Critical: $critical" -ForegroundColor $(if ($critical -gt 0) { "Red" } else { "Green" })
 Write-Host "  High: $high" -ForegroundColor $(if ($high -gt 0) { "Magenta" } else { "Green" })
 Write-Host "  Medium: $medium" -ForegroundColor $(if ($medium -gt 0) { "Yellow" } else { "Green" })
 Write-Host "  Low: $low" -ForegroundColor Green

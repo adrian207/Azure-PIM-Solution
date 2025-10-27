@@ -65,8 +65,11 @@ class RiskCalculator {
         $totalScore += $historyRisk * $this.RiskFactors.History.Weight
         $totalWeight += $this.RiskFactors.History.Weight
         
-        # Normalize to 0-10 scale
-        return ($totalScore / $totalWeight) * 10
+        # Normalize to 0-10 scale (avoid division by zero)
+        if ($totalWeight -gt 0) {
+            return ($totalScore / $totalWeight) * 10
+        }
+        return 0.0
     }
 
     [double] EvaluateTimeRisk([object]$Event) {
