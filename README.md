@@ -125,6 +125,11 @@ cd scripts
 | [Automated Incident Response](docs/security/automated-incident-response.md) | Security automation & response | 1 hour |
 | [Credential Rotation](docs/security/credential-rotation-automation.md) | Automated credential rotation | 1 hour |
 | [Redis Caching](docs/performance/distributed-caching-redis.md) | Distributed caching for performance | 45 min |
+| [Query Optimization](docs/performance/database-query-optimization.md) | 10x faster database queries | 1 hour |
+| [Bulk Operations API](docs/performance/bulk-operations-api.md) | 10x faster bulk processing | 1.5 hours |
+| [Self-Service Portal](docs/portal/web-self-service-portal.md) | Web-based access requests | 3 hours |
+| [Mobile App Approvals](docs/portal/mobile-app-push-approvals.md) | iOS/Android with push notifications | 2 hours |
+| [Time-Based Access Controls](docs/access-controls/time-based-access-controls.md) | Schedule-based and business hours access | 1.5 hours |
 | [PASS Dashboard](docs/reporting/pass-dashboard.md) | Privileged Access Security Score | 1 hour |
 | [Integration Guide](docs/integration-guide.md) | API integration and automation | 1 hour |
 | [Deployment Guide](docs/operations/deployment-guide.md) | Technical deployment instructions | 2 hours |
@@ -135,6 +140,7 @@ cd scripts
 | Document | Description | Time |
 |----------|-------------|------|
 | [Compliance Framework](docs/compliance-framework.md) | Regulatory requirements mapping | 1 hour |
+| [Automated Access Certifications](docs/compliance/automated-access-certifications.md) | Automated quarterly reviews | 2 hours |
 | [Log Archival Strategy](docs/operations/log-archival-strategy.md) | Retention and archival procedures | 45 min |
 | [Security Policies](docs/design/security-policies.md) | Access control definitions | 1 hour |
 | [Zero-Trust Architecture](docs/security/zero-trust-architecture.md) | Zero-trust security framework | 1.5 hours |
