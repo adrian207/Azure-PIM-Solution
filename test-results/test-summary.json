@@ -1,23 +1,10 @@
 {
-  "PassRate": 84.81,
-  "FailedTestNames": [
-    "Should detect high frequency requests as elevated risk",
-    "Should classify risk score 5-7.9 as High",
-    "Should classify risk score 3-4.9 as Medium",
-    "Should handle empty array",
-    "Should include user ID in results",
-    "Should use provided duration",
-    "Should use provided justification",
-    "Should use cache when specified",
-    "Should return false for expired key",
-    "Should not return expired items",
-    "Should clear expired items from memory",
-    "Should calculate risk score within 0-10 range"
-  ],
-  "Timestamp": "2025-10-27T19:05:54.5024663-07:00",
   "SkippedTests": 0,
-  "PassedTests": 67,
-  "Duration": 8.260185,
-  "TotalTests": 79,
-  "FailedTests": 12
+  "PassRate": 100.0,
+  "FailedTests": 0,
+  "Timestamp": "2025-10-27T19:14:48.1386266-07:00",
+  "PassedTests": 79,
+  "FailedTestNames": null,
+  "Duration": 7.3774192,
+  "TotalTests": 79
 }

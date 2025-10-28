@@ -1,302 +1,217 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="79" errors="0" failures="12" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2025-10-27" time="19:05:45">
-  <environment user-domain="ADRIANPC" nunit-version="2.5.8.0" clr-version="9.0.10" os-version="10.0.26200" platform="Microsoft Windows 11 Enterprise|C:\Windows|\Device\Harddisk0\Partition3" machine-name="ADRIANPC" cwd="C:\Github\Azure PIM Solution" user="adria" />
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="79" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2025-10-27" time="19:14:40">
+  <environment platform="Microsoft Windows 11 Enterprise|C:\Windows|\Device\Harddisk0\Partition3" cwd="C:\Github\Azure PIM Solution" user="adria" clr-version="9.0.10" machine-name="ADRIANPC" os-version="10.0.26200" user-domain="ADRIANPC" nunit-version="2.5.8.0" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="TestFixture" name="Pester" executed="True" result="Failure" success="False" time="8.2602" asserts="0" description="Pester">
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Success" success="True" time="7.3774" asserts="0" description="Pester">
     <results>
-      <test-suite type="TestFixture" name="C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1" executed="True" result="Failure" success="False" time="0.7558" asserts="0" description="C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1">
+      <test-suite type="TestFixture" name="C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1" executed="True" result="Success" success="True" time="0.6666" asserts="0" description="C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1">
         <results>
-          <test-suite type="TestFixture" name="AnomalyDetector" executed="True" result="Failure" success="False" time="0.3653" asserts="0" description="AnomalyDetector">
+          <test-suite type="TestFixture" name="AnomalyDetector" executed="True" result="Success" success="True" time="0.2998" asserts="0" description="AnomalyDetector">
             <results>
-              <test-suite type="TestFixture" name="AnomalyDetector.Initialization" executed="True" result="Success" success="True" time="0.112" asserts="0" description="AnomalyDetector.Initialization">
+              <test-suite type="TestFixture" name="AnomalyDetector.Initialization" executed="True" result="Success" success="True" time="0.1094" asserts="0" description="AnomalyDetector.Initialization">
                 <results>
-                  <test-case description="Should initialize with default threshold" name="AnomalyDetector.Initialization.Should initialize with default threshold" time="0.0795" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should initialize with empty baselines" name="AnomalyDetector.Initialization.Should initialize with empty baselines" time="0.0064" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should initialize with empty pattern signatures" name="AnomalyDetector.Initialization.Should initialize with empty pattern signatures" time="0.0048" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should initialize with default threshold" name="AnomalyDetector.Initialization.Should initialize with default threshold" time="0.0784" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should initialize with empty baselines" name="AnomalyDetector.Initialization.Should initialize with empty baselines" time="0.0058" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should initialize with empty pattern signatures" name="AnomalyDetector.Initialization.Should initialize with empty pattern signatures" time="0.0038" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="AnomalyDetector.Time-Based Anomaly Detection" executed="True" result="Success" success="True" time="0.1479" asserts="0" description="AnomalyDetector.Time-Based Anomaly Detection">
+              <test-suite type="TestFixture" name="AnomalyDetector.Time-Based Anomaly Detection" executed="True" result="Success" success="True" time="0.1442" asserts="0" description="AnomalyDetector.Time-Based Anomaly Detection">
                 <results>
-                  <test-case description="Should detect after-hours access (midnight-6am) as high risk" name="AnomalyDetector.Time-Based Anomaly Detection.Should detect after-hours access (midnight-6am) as high risk" time="0.0134" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should detect business hours access as low risk" name="AnomalyDetector.Time-Based Anomaly Detection.Should detect business hours access as low risk" time="0.0042" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should detect weekend access as elevated risk" name="AnomalyDetector.Time-Based Anomaly Detection.Should detect weekend access as elevated risk" time="0.0029" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should detect after-hours access (midnight-6am) as high risk" name="AnomalyDetector.Time-Based Anomaly Detection.Should detect after-hours access (midnight-6am) as high risk" time="0.0137" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should detect business hours access as low risk" name="AnomalyDetector.Time-Based Anomaly Detection.Should detect business hours access as low risk" time="0.0036" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should detect weekend access as elevated risk" name="AnomalyDetector.Time-Based Anomaly Detection.Should detect weekend access as elevated risk" time="0.0028" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="AnomalyDetector.Role-Based Anomaly Detection" executed="True" result="Success" success="True" time="0.1654" asserts="0" description="AnomalyDetector.Role-Based Anomaly Detection">
+              <test-suite type="TestFixture" name="AnomalyDetector.Role-Based Anomaly Detection" executed="True" result="Success" success="True" time="0.1604" asserts="0" description="AnomalyDetector.Role-Based Anomaly Detection">
                 <results>
-                  <test-case description="Should detect high-privilege role access as elevated risk" name="AnomalyDetector.Role-Based Anomaly Detection.Should detect high-privilege role access as elevated risk" time="0.0093" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should detect new role usage as elevated risk" name="AnomalyDetector.Role-Based Anomaly Detection.Should detect new role usage as elevated risk" time="0.005" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should detect high-privilege role access as elevated risk" name="AnomalyDetector.Role-Based Anomaly Detection.Should detect high-privilege role access as elevated risk" time="0.0075" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should detect new role usage as elevated risk" name="AnomalyDetector.Role-Based Anomaly Detection.Should detect new role usage as elevated risk" time="0.0053" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="AnomalyDetector.Frequency-Based Anomaly Detection" executed="True" result="Failure" success="False" time="0.2289" asserts="0" description="AnomalyDetector.Frequency-Based Anomaly Detection">
+              <test-suite type="TestFixture" name="AnomalyDetector.Frequency-Based Anomaly Detection" executed="True" result="Success" success="True" time="0.1934" asserts="0" description="AnomalyDetector.Frequency-Based Anomaly Detection">
                 <results>
-                  <test-case description="Should detect high frequency requests as elevated risk" name="AnomalyDetector.Frequency-Based Anomaly Detection.Should detect high frequency requests as elevated risk" time="0.0597" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>FormatException: String '2025-10-27T19:05:46.3691562-07:002025-10-27T19:04:46.3805817-07:00' was not recognized as a valid DateTime.
-MethodInvocationException: Exception calling "Parse" with "1" argument(s): "String '2025-10-27T19:05:46.3691562-07:002025-10-27T19:04:46.3805817-07:00' was not recognized as a valid DateTime."</message>
-                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\scripts\utilities\Anomaly-Detector.ps1:181
-at CheckFrequencyAnomaly, C:\Github\Azure PIM Solution\scripts\utilities\Anomaly-Detector.ps1:180
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1:126</stack-trace>
-                    </failure>
-                  </test-case>
+                  <test-case description="Should detect high frequency requests as elevated risk" name="AnomalyDetector.Frequency-Based Anomaly Detection.Should detect high frequency requests as elevated risk" time="0.0296" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="AnomalyDetector.Overall Risk Calculation" executed="True" result="Success" success="True" time="0.2713" asserts="0" description="AnomalyDetector.Overall Risk Calculation">
+              <test-suite type="TestFixture" name="AnomalyDetector.Overall Risk Calculation" executed="True" result="Success" success="True" time="0.2351" asserts="0" description="AnomalyDetector.Overall Risk Calculation">
                 <results>
-                  <test-case description="Should calculate risk score for normal event" name="AnomalyDetector.Overall Risk Calculation.Should calculate risk score for normal event" time="0.0192" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should calculate higher risk for suspicious event" name="AnomalyDetector.Overall Risk Calculation.Should calculate higher risk for suspicious event" time="0.019" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should calculate risk score for normal event" name="AnomalyDetector.Overall Risk Calculation.Should calculate risk score for normal event" time="0.0333" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should calculate higher risk for suspicious event" name="AnomalyDetector.Overall Risk Calculation.Should calculate higher risk for suspicious event" time="0.0046" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="AnomalyDetector.Anomaly Detection" executed="True" result="Success" success="True" time="0.3081" asserts="0" description="AnomalyDetector.Anomaly Detection">
+              <test-suite type="TestFixture" name="AnomalyDetector.Anomaly Detection" executed="True" result="Success" success="True" time="0.2696" asserts="0" description="AnomalyDetector.Anomaly Detection">
                 <results>
-                  <test-case description="Should detect anomalies above threshold" name="AnomalyDetector.Anomaly Detection.Should detect anomalies above threshold" time="0.0171" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should include severity in anomaly results" name="AnomalyDetector.Anomaly Detection.Should include severity in anomaly results" time="0.0078" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should include recommendations in anomaly results" name="AnomalyDetector.Anomaly Detection.Should include recommendations in anomaly results" time="0.0083" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should detect anomalies above threshold" name="AnomalyDetector.Anomaly Detection.Should detect anomalies above threshold" time="0.0153" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should include severity in anomaly results" name="AnomalyDetector.Anomaly Detection.Should include severity in anomaly results" time="0.0072" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should include recommendations in anomaly results" name="AnomalyDetector.Anomaly Detection.Should include recommendations in anomaly results" time="0.0082" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="AnomalyDetector.Severity Calculation" executed="True" result="Failure" success="False" time="0.3565" asserts="0" description="AnomalyDetector.Severity Calculation">
+              <test-suite type="TestFixture" name="AnomalyDetector.Severity Calculation" executed="True" result="Success" success="True" time="0.2909" asserts="0" description="AnomalyDetector.Severity Calculation">
                 <results>
-                  <test-case description="Should classify risk score 8+ as Critical" name="AnomalyDetector.Severity Calculation.Should classify risk score 8+ as Critical" time="0.0047" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should classify risk score 5-7.9 as High" name="AnomalyDetector.Severity Calculation.Should classify risk score 5-7.9 as High" time="0.0292" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected strings to be the same, but they were different.
-Expected length: 4
-Actual length:   8
-Strings differ at index 0.
-Expected: 'High'
-But was:  'Critical'
-           ^</message>
-                      <stack-trace>at $severity | Should -Be "High", C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1:237
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1:237</stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case description="Should classify risk score 3-4.9 as Medium" name="AnomalyDetector.Severity Calculation.Should classify risk score 3-4.9 as Medium" time="0.0056" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected strings to be the same, but they were different.
-Expected length: 6
-Actual length:   4
-Strings differ at index 0.
-Expected: 'Medium'
-But was:  'High'
-           ^</message>
-                      <stack-trace>at $severity | Should -Be "Medium", C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1:242
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\AnomalyDetector.Tests.ps1:242</stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case description="Should classify risk score &lt;3 as Low" name="AnomalyDetector.Severity Calculation.Should classify risk score &lt;3 as Low" time="0.0044" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should classify risk score 8+ as Critical" name="AnomalyDetector.Severity Calculation.Should classify risk score 8+ as Critical" time="0.0051" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should classify risk score 5-7.9 as High" name="AnomalyDetector.Severity Calculation.Should classify risk score 5-7.9 as High" time="0.0028" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should classify risk score 3-4.9 as Medium" name="AnomalyDetector.Severity Calculation.Should classify risk score 3-4.9 as Medium" time="0.003" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should classify risk score &lt;3 as Low" name="AnomalyDetector.Severity Calculation.Should classify risk score &lt;3 as Low" time="0.0054" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
             </results>
           </test-suite>
         </results>
       </test-suite>
-      <test-suite type="TestFixture" name="C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1" executed="True" result="Failure" success="False" time="6.1743" asserts="0" description="C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1">
+      <test-suite type="TestFixture" name="C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1" executed="True" result="Success" success="True" time="5.5024" asserts="0" description="C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1">
         <results>
-          <test-suite type="TestFixture" name="Bulk Operations" executed="True" result="Failure" success="False" time="6.0866" asserts="0" description="Bulk Operations">
+          <test-suite type="TestFixture" name="Bulk Operations" executed="True" result="Success" success="True" time="5.3936" asserts="0" description="Bulk Operations">
             <results>
-              <test-suite type="TestFixture" name="Bulk Operations.Invoke-BulkOperation" executed="True" result="Failure" success="False" time="1.4746" asserts="0" description="Bulk Operations.Invoke-BulkOperation">
+              <test-suite type="TestFixture" name="Bulk Operations.Invoke-BulkOperation" executed="True" result="Success" success="True" time="1.4873" asserts="0" description="Bulk Operations.Invoke-BulkOperation">
                 <results>
-                  <test-case description="Should process all items" name="Bulk Operations.Invoke-BulkOperation.Should process all items" time="0.046" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should apply operation correctly" name="Bulk Operations.Invoke-BulkOperation.Should apply operation correctly" time="0.0193" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should handle empty array" name="Bulk Operations.Invoke-BulkOperation.Should handle empty array" time="0.0093" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Items' because it is an empty collection.</message>
-                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:39</stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case description="Should respect batch size" name="Bulk Operations.Invoke-BulkOperation.Should respect batch size" time="1.2116" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should handle errors gracefully" name="Bulk Operations.Invoke-BulkOperation.Should handle errors gracefully" time="0.0315" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should process with custom MaxParallel" name="Bulk Operations.Invoke-BulkOperation.Should process with custom MaxParallel" time="0.1525" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should process all items" name="Bulk Operations.Invoke-BulkOperation.Should process all items" time="0.0476" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should apply operation correctly" name="Bulk Operations.Invoke-BulkOperation.Should apply operation correctly" time="0.0167" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should handle empty array" name="Bulk Operations.Invoke-BulkOperation.Should handle empty array" time="0.0041" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should respect batch size" name="Bulk Operations.Invoke-BulkOperation.Should respect batch size" time="1.2267" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should handle errors gracefully" name="Bulk Operations.Invoke-BulkOperation.Should handle errors gracefully" time="0.024" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should process with custom MaxParallel" name="Bulk Operations.Invoke-BulkOperation.Should process with custom MaxParallel" time="0.164" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="Bulk Operations.Set-BulkPIMRoleAssignments" executed="True" result="Failure" success="False" time="2.0813" asserts="0" description="Bulk Operations.Set-BulkPIMRoleAssignments">
+              <test-suite type="TestFixture" name="Bulk Operations.Set-BulkPIMRoleAssignments" executed="True" result="Success" success="True" time="1.5251" asserts="0" description="Bulk Operations.Set-BulkPIMRoleAssignments">
                 <results>
-                  <test-case description="Should process user assignments" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should process user assignments" time="0.0262" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should include user ID in results" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should include user ID in results" time="0.0295" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected 'user1', but got $null.</message>
-                      <stack-trace>at $results[0].UserId | Should -Be "user1", C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:99
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:99</stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case description="Should use provided duration" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should use provided duration" time="0.0188" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected 60, but got $null.</message>
-                      <stack-trace>at $results[0].DurationDays | Should -Be 60, C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:109
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:109</stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case description="Should use provided justification" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should use provided justification" time="0.0178" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected 'Test justification', but got $null.</message>
-                      <stack-trace>at $results[0].Justification | Should -Be "Test justification", C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:119
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:119</stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case description="Should handle large user lists" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should handle large user lists" time="0.5088" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should process user assignments" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should process user assignments" time="0.0104" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should include user ID in results" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should include user ID in results" time="0.0051" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should use provided duration" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should use provided duration" time="0.0039" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should use provided justification" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should use provided justification" time="0.0048" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should handle large user lists" name="Bulk Operations.Set-BulkPIMRoleAssignments.Should handle large user lists" time="0.0077" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="Bulk Operations.Get-BulkAzureResources" executed="True" result="Failure" success="False" time="5.5777" asserts="0" description="Bulk Operations.Get-BulkAzureResources">
+              <test-suite type="TestFixture" name="Bulk Operations.Get-BulkAzureResources" executed="True" result="Success" success="True" time="4.8869" asserts="0" description="Bulk Operations.Get-BulkAzureResources">
                 <results>
-                  <test-case description="Should accept resource group parameter" name="Bulk Operations.Get-BulkAzureResources.Should accept resource group parameter" time="3.4377" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should filter by resource type" name="Bulk Operations.Get-BulkAzureResources.Should filter by resource type" time="0.0134" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should use cache when specified" name="Bulk Operations.Get-BulkAzureResources.Should use cache when specified" time="0.04" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>RuntimeException: Unable to find type [CacheManager].</message>
-                      <stack-trace>at Get-BulkAzureResources, C:\Github\Azure PIM Solution\scripts\utilities\Bulk-Operations.ps1:122
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:166</stack-trace>
-                    </failure>
-                  </test-case>
+                  <test-case description="Should accept resource group parameter" name="Bulk Operations.Get-BulkAzureResources.Should accept resource group parameter" time="3.2472" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should filter by resource type" name="Bulk Operations.Get-BulkAzureResources.Should filter by resource type" time="0.0131" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should use cache when specified" name="Bulk Operations.Get-BulkAzureResources.Should use cache when specified" time="0.0975" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="Bulk Operations.Performance Tests" executed="True" result="Success" success="True" time="6.0833" asserts="0" description="Bulk Operations.Performance Tests">
+              <test-suite type="TestFixture" name="Bulk Operations.Performance Tests" executed="True" result="Success" success="True" time="5.3905" asserts="0" description="Bulk Operations.Performance Tests">
                 <results>
-                  <test-case description="Should complete bulk operation within reasonable time" name="Bulk Operations.Performance Tests.Should complete bulk operation within reasonable time" time="0.2515" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should handle concurrent operations" name="Bulk Operations.Performance Tests.Should handle concurrent operations" time="0.2486" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should complete bulk operation within reasonable time" name="Bulk Operations.Performance Tests.Should complete bulk operation within reasonable time" time="0.2317" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should handle concurrent operations" name="Bulk Operations.Performance Tests.Should handle concurrent operations" time="0.2661" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
             </results>
           </test-suite>
         </results>
       </test-suite>
-      <test-suite type="TestFixture" name="C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1" executed="True" result="Failure" success="False" time="1.0845" asserts="0" description="C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1">
+      <test-suite type="TestFixture" name="C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1" executed="True" result="Success" success="True" time="1" asserts="0" description="C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1">
         <results>
-          <test-suite type="TestFixture" name="CacheManager" executed="True" result="Failure" success="False" time="1.0086" asserts="0" description="CacheManager">
+          <test-suite type="TestFixture" name="CacheManager" executed="True" result="Success" success="True" time="0.9315" asserts="0" description="CacheManager">
             <results>
-              <test-suite type="TestFixture" name="CacheManager.Initialization" executed="True" result="Success" success="True" time="0.043" asserts="0" description="CacheManager.Initialization">
+              <test-suite type="TestFixture" name="CacheManager.Initialization" executed="True" result="Success" success="True" time="0.033" asserts="0" description="CacheManager.Initialization">
                 <results>
-                  <test-case description="Should initialize with cache directory" name="CacheManager.Initialization.Should initialize with cache directory" time="0.0205" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should initialize with default expiration" name="CacheManager.Initialization.Should initialize with default expiration" time="0.0098" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should initialize with empty in-memory cache" name="CacheManager.Initialization.Should initialize with empty in-memory cache" time="0.0086" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should initialize with cache directory" name="CacheManager.Initialization.Should initialize with cache directory" time="0.0141" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should initialize with default expiration" name="CacheManager.Initialization.Should initialize with default expiration" time="0.0078" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should initialize with empty in-memory cache" name="CacheManager.Initialization.Should initialize with empty in-memory cache" time="0.0078" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="CacheManager.Set and Get Operations" executed="True" result="Success" success="True" time="0.1248" asserts="0" description="CacheManager.Set and Get Operations">
+              <test-suite type="TestFixture" name="CacheManager.Set and Get Operations" executed="True" result="Success" success="True" time="0.0913" asserts="0" description="CacheManager.Set and Get Operations">
                 <results>
-                  <test-case description="Should store and retrieve simple value" name="CacheManager.Set and Get Operations.Should store and retrieve simple value" time="0.0301" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should store and retrieve complex object" name="CacheManager.Set and Get Operations.Should store and retrieve complex object" time="0.0169" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should store and retrieve simple value" name="CacheManager.Set and Get Operations.Should store and retrieve simple value" time="0.0169" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should store and retrieve complex object" name="CacheManager.Set and Get Operations.Should store and retrieve complex object" time="0.0144" asserts="0" success="True" result="Success" executed="True" />
                   <test-case description="Should return null for non-existent key" name="CacheManager.Set and Get Operations.Should return null for non-existent key" time="0.0099" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should use custom expiration time" name="CacheManager.Set and Get Operations.Should use custom expiration time" time="0.0143" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should use custom expiration time" name="CacheManager.Set and Get Operations.Should use custom expiration time" time="0.0136" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="CacheManager.Contains Operation" executed="True" result="Failure" success="False" time="0.2739" asserts="0" description="CacheManager.Contains Operation">
+              <test-suite type="TestFixture" name="CacheManager.Contains Operation" executed="True" result="Success" success="True" time="0.2447" asserts="0" description="CacheManager.Contains Operation">
                 <results>
-                  <test-case description="Should return true for existing key" name="CacheManager.Contains Operation.Should return true for existing key" time="0.0107" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return false for non-existent key" name="CacheManager.Contains Operation.Should return false for non-existent key" time="0.0083" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return false for expired key" name="CacheManager.Contains Operation.Should return false for expired key" time="0.1256" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected $false, but got $true.</message>
-                      <stack-trace>at $cache.Contains("expired") | Should -Be $false, C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1:96
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1:96</stack-trace>
-                    </failure>
-                  </test-case>
+                  <test-case description="Should return true for existing key" name="CacheManager.Contains Operation.Should return true for existing key" time="0.0108" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return false for non-existent key" name="CacheManager.Contains Operation.Should return false for non-existent key" time="0.0079" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return false for expired key" name="CacheManager.Contains Operation.Should return false for expired key" time="0.128" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="CacheManager.Expiration Handling" executed="True" result="Failure" success="False" time="0.5532" asserts="0" description="CacheManager.Expiration Handling">
+              <test-suite type="TestFixture" name="CacheManager.Expiration Handling" executed="True" result="Success" success="True" time="0.5068" asserts="0" description="CacheManager.Expiration Handling">
                 <results>
-                  <test-case description="Should not return expired items" name="CacheManager.Expiration Handling.Should not return expired items" time="0.1361" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected $null or empty, but got 'value'.</message>
-                      <stack-trace>at $value | Should -BeNullOrEmpty, C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1:107
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1:107</stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case description="Should clear expired items from memory" name="CacheManager.Expiration Handling.Should clear expired items from memory" time="0.1395" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected $false, but got $true.</message>
-                      <stack-trace>at $cache.Contains("item1") | Should -Be $false, C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1:117
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\CacheManager.Tests.ps1:117</stack-trace>
-                    </failure>
-                  </test-case>
+                  <test-case description="Should not return expired items" name="CacheManager.Expiration Handling.Should not return expired items" time="0.12" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should clear expired items from memory" name="CacheManager.Expiration Handling.Should clear expired items from memory" time="0.1387" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="CacheManager.Disk Persistence" executed="True" result="Success" success="True" time="0.7126" asserts="0" description="CacheManager.Disk Persistence">
+              <test-suite type="TestFixture" name="CacheManager.Disk Persistence" executed="True" result="Success" success="True" time="0.674" asserts="0" description="CacheManager.Disk Persistence">
                 <results>
-                  <test-case description="Should persist cache to disk" name="CacheManager.Disk Persistence.Should persist cache to disk" time="0.0105" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should load from disk if not in memory" name="CacheManager.Disk Persistence.Should load from disk if not in memory" time="0.016" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should remove expired disk cache files" name="CacheManager.Disk Persistence.Should remove expired disk cache files" time="0.1294" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should persist cache to disk" name="CacheManager.Disk Persistence.Should persist cache to disk" time="0.011" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should load from disk if not in memory" name="CacheManager.Disk Persistence.Should load from disk if not in memory" time="0.0164" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should remove expired disk cache files" name="CacheManager.Disk Persistence.Should remove expired disk cache files" time="0.1362" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="CacheManager.Clear Operations" executed="True" result="Success" success="True" time="0.7578" asserts="0" description="CacheManager.Clear Operations">
+              <test-suite type="TestFixture" name="CacheManager.Clear Operations" executed="True" result="Success" success="True" time="0.7181" asserts="0" description="CacheManager.Clear Operations">
                 <results>
-                  <test-case description="Should clear all cache items" name="CacheManager.Clear Operations.Should clear all cache items" time="0.0206" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should clear disk cache files" name="CacheManager.Clear Operations.Should clear disk cache files" time="0.0212" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should clear all cache items" name="CacheManager.Clear Operations.Should clear all cache items" time="0.0229" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should clear disk cache files" name="CacheManager.Clear Operations.Should clear disk cache files" time="0.0177" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="CacheManager.Performance" executed="True" result="Success" success="True" time="1.0049" asserts="0" description="CacheManager.Performance">
+              <test-suite type="TestFixture" name="CacheManager.Performance" executed="True" result="Success" success="True" time="0.9284" asserts="0" description="CacheManager.Performance">
                 <results>
-                  <test-case description="Should handle multiple rapid operations" name="CacheManager.Performance.Should handle multiple rapid operations" time="0.2238" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should retrieve from memory faster than disk" name="CacheManager.Performance.Should retrieve from memory faster than disk" time="0.0199" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should handle multiple rapid operations" name="CacheManager.Performance.Should handle multiple rapid operations" time="0.1888" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should retrieve from memory faster than disk" name="CacheManager.Performance.Should retrieve from memory faster than disk" time="0.0183" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
             </results>
           </test-suite>
         </results>
       </test-suite>
-      <test-suite type="TestFixture" name="C:\Github\Azure PIM Solution\tests\unit\RiskCalculator.Tests.ps1" executed="True" result="Failure" success="False" time="0.2456" asserts="0" description="C:\Github\Azure PIM Solution\tests\unit\RiskCalculator.Tests.ps1">
+      <test-suite type="TestFixture" name="C:\Github\Azure PIM Solution\tests\unit\RiskCalculator.Tests.ps1" executed="True" result="Success" success="True" time="0.2084" asserts="0" description="C:\Github\Azure PIM Solution\tests\unit\RiskCalculator.Tests.ps1">
         <results>
-          <test-suite type="TestFixture" name="RiskCalculator" executed="True" result="Failure" success="False" time="0.1632" asserts="0" description="RiskCalculator">
+          <test-suite type="TestFixture" name="RiskCalculator" executed="True" result="Success" success="True" time="0.1428" asserts="0" description="RiskCalculator">
             <results>
-              <test-suite type="TestFixture" name="RiskCalculator.Initialization" executed="True" result="Success" success="True" time="0.0225" asserts="0" description="RiskCalculator.Initialization">
+              <test-suite type="TestFixture" name="RiskCalculator.Initialization" executed="True" result="Success" success="True" time="0.0205" asserts="0" description="RiskCalculator.Initialization">
                 <results>
-                  <test-case description="Should initialize with risk factors" name="RiskCalculator.Initialization.Should initialize with risk factors" time="0.0082" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should have correct risk factor weights" name="RiskCalculator.Initialization.Should have correct risk factor weights" time="0.0062" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should initialize with risk weights" name="RiskCalculator.Initialization.Should initialize with risk weights" time="0.0046" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should initialize with risk factors" name="RiskCalculator.Initialization.Should initialize with risk factors" time="0.0071" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have correct risk factor weights" name="RiskCalculator.Initialization.Should have correct risk factor weights" time="0.0057" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should initialize with risk weights" name="RiskCalculator.Initialization.Should initialize with risk weights" time="0.004" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="RiskCalculator.Time Risk Evaluation" executed="True" result="Success" success="True" time="0.0397" asserts="0" description="RiskCalculator.Time Risk Evaluation">
+              <test-suite type="TestFixture" name="RiskCalculator.Time Risk Evaluation" executed="True" result="Success" success="True" time="0.0372" asserts="0" description="RiskCalculator.Time Risk Evaluation">
                 <results>
-                  <test-case description="Should return high risk for midnight-6am access" name="RiskCalculator.Time Risk Evaluation.Should return high risk for midnight-6am access" time="0.0071" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return low risk for business hours access" name="RiskCalculator.Time Risk Evaluation.Should return low risk for business hours access" time="0.0031" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return medium risk for after-hours access" name="RiskCalculator.Time Risk Evaluation.Should return medium risk for after-hours access" time="0.0031" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return high risk for midnight-6am access" name="RiskCalculator.Time Risk Evaluation.Should return high risk for midnight-6am access" time="0.006" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return low risk for business hours access" name="RiskCalculator.Time Risk Evaluation.Should return low risk for business hours access" time="0.0024" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return medium risk for after-hours access" name="RiskCalculator.Time Risk Evaluation.Should return medium risk for after-hours access" time="0.0026" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="RiskCalculator.Day Risk Evaluation" executed="True" result="Success" success="True" time="0.0528" asserts="0" description="RiskCalculator.Day Risk Evaluation">
+              <test-suite type="TestFixture" name="RiskCalculator.Day Risk Evaluation" executed="True" result="Success" success="True" time="0.0492" asserts="0" description="RiskCalculator.Day Risk Evaluation">
                 <results>
-                  <test-case description="Should return high risk for weekend access" name="RiskCalculator.Day Risk Evaluation.Should return high risk for weekend access" time="0.0056" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return low risk for weekday access" name="RiskCalculator.Day Risk Evaluation.Should return low risk for weekday access" time="0.0039" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return high risk for weekend access" name="RiskCalculator.Day Risk Evaluation.Should return high risk for weekend access" time="0.0054" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return low risk for weekday access" name="RiskCalculator.Day Risk Evaluation.Should return low risk for weekday access" time="0.0031" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="RiskCalculator.Location Risk Evaluation" executed="True" result="Success" success="True" time="0.0702" asserts="0" description="RiskCalculator.Location Risk Evaluation">
+              <test-suite type="TestFixture" name="RiskCalculator.Location Risk Evaluation" executed="True" result="Success" success="True" time="0.063" asserts="0" description="RiskCalculator.Location Risk Evaluation">
                 <results>
-                  <test-case description="Should return medium risk for unknown location" name="RiskCalculator.Location Risk Evaluation.Should return medium risk for unknown location" time="0.0061" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return high risk for high-risk countries" name="RiskCalculator.Location Risk Evaluation.Should return high risk for high-risk countries" time="0.0034" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return low risk for normal locations" name="RiskCalculator.Location Risk Evaluation.Should return low risk for normal locations" time="0.0034" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return medium risk for unknown location" name="RiskCalculator.Location Risk Evaluation.Should return medium risk for unknown location" time="0.0045" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return high risk for high-risk countries" name="RiskCalculator.Location Risk Evaluation.Should return high risk for high-risk countries" time="0.0029" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return low risk for normal locations" name="RiskCalculator.Location Risk Evaluation.Should return low risk for normal locations" time="0.0029" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="RiskCalculator.Role Risk Evaluation" executed="True" result="Success" success="True" time="0.0923" asserts="0" description="RiskCalculator.Role Risk Evaluation">
+              <test-suite type="TestFixture" name="RiskCalculator.Role Risk Evaluation" executed="True" result="Success" success="True" time="0.0786" asserts="0" description="RiskCalculator.Role Risk Evaluation">
                 <results>
-                  <test-case description="Should return critical risk for Global Administrator" name="RiskCalculator.Role Risk Evaluation.Should return critical risk for Global Administrator" time="0.0054" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return high risk for privileged roles" name="RiskCalculator.Role Risk Evaluation.Should return high risk for privileged roles" time="0.003" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return medium risk for standard admin roles" name="RiskCalculator.Role Risk Evaluation.Should return medium risk for standard admin roles" time="0.0062" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return low risk for low-privilege roles" name="RiskCalculator.Role Risk Evaluation.Should return low risk for low-privilege roles" time="0.0034" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return critical risk for Global Administrator" name="RiskCalculator.Role Risk Evaluation.Should return critical risk for Global Administrator" time="0.0048" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return high risk for privileged roles" name="RiskCalculator.Role Risk Evaluation.Should return high risk for privileged roles" time="0.0026" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return medium risk for standard admin roles" name="RiskCalculator.Role Risk Evaluation.Should return medium risk for standard admin roles" time="0.0023" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return low risk for low-privilege roles" name="RiskCalculator.Role Risk Evaluation.Should return low risk for low-privilege roles" time="0.0026" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="RiskCalculator.Overall Risk Score Calculation" executed="True" result="Failure" success="False" time="0.121" asserts="0" description="RiskCalculator.Overall Risk Score Calculation">
+              <test-suite type="TestFixture" name="RiskCalculator.Overall Risk Score Calculation" executed="True" result="Success" success="True" time="0.1006" asserts="0" description="RiskCalculator.Overall Risk Score Calculation">
                 <results>
-                  <test-case description="Should calculate risk score within 0-10 range" name="RiskCalculator.Overall Risk Score Calculation.Should calculate risk score within 0-10 range" time="0.0168" asserts="0" success="False" result="Failure" executed="True">
-                    <failure>
-                      <message>Expected the actual value to be less than or equal to 10.0, but got 28.</message>
-                      <stack-trace>at $score | Should -BeLessOrEqual 10.0, C:\Github\Azure PIM Solution\tests\unit\RiskCalculator.Tests.ps1:162
-at &lt;ScriptBlock&gt;, C:\Github\Azure PIM Solution\tests\unit\RiskCalculator.Tests.ps1:162</stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case description="Should calculate higher risk for suspicious event" name="RiskCalculator.Overall Risk Score Calculation.Should calculate higher risk for suspicious event" time="0.0038" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should not divide by zero with empty event" name="RiskCalculator.Overall Risk Score Calculation.Should not divide by zero with empty event" time="0.0043" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should calculate risk score within 0-10 range" name="RiskCalculator.Overall Risk Score Calculation.Should calculate risk score within 0-10 range" time="0.0119" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should calculate higher risk for suspicious event" name="RiskCalculator.Overall Risk Score Calculation.Should calculate higher risk for suspicious event" time="0.003" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not divide by zero with empty event" name="RiskCalculator.Overall Risk Score Calculation.Should not divide by zero with empty event" time="0.0036" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="RiskCalculator.Risk Category Classification" executed="True" result="Success" success="True" time="0.142" asserts="0" description="RiskCalculator.Risk Category Classification">
+              <test-suite type="TestFixture" name="RiskCalculator.Risk Category Classification" executed="True" result="Success" success="True" time="0.1224" asserts="0" description="RiskCalculator.Risk Category Classification">
                 <results>
-                  <test-case description="Should classify score 8+ as Critical" name="RiskCalculator.Risk Category Classification.Should classify score 8+ as Critical" time="0.0053" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should classify score 6-7.9 as High" name="RiskCalculator.Risk Category Classification.Should classify score 6-7.9 as High" time="0.0037" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should classify score 4-5.9 as Medium" name="RiskCalculator.Risk Category Classification.Should classify score 4-5.9 as Medium" time="0.004" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should classify score &lt;4 as Low" name="RiskCalculator.Risk Category Classification.Should classify score &lt;4 as Low" time="0.0041" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should classify score 8+ as Critical" name="RiskCalculator.Risk Category Classification.Should classify score 8+ as Critical" time="0.0052" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should classify score 6-7.9 as High" name="RiskCalculator.Risk Category Classification.Should classify score 6-7.9 as High" time="0.0027" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should classify score 4-5.9 as Medium" name="RiskCalculator.Risk Category Classification.Should classify score 4-5.9 as Medium" time="0.0029" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should classify score &lt;4 as Low" name="RiskCalculator.Risk Category Classification.Should classify score &lt;4 as Low" time="0.0073" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="RiskCalculator.Risk Color Classification" executed="True" result="Success" success="True" time="0.1595" asserts="0" description="RiskCalculator.Risk Color Classification">
+              <test-suite type="TestFixture" name="RiskCalculator.Risk Color Classification" executed="True" result="Success" success="True" time="0.1398" asserts="0" description="RiskCalculator.Risk Color Classification">
                 <results>
                   <test-case description="Should return Red for critical risk" name="RiskCalculator.Risk Color Classification.Should return Red for critical risk" time="0.0048" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return Orange for high risk" name="RiskCalculator.Risk Color Classification.Should return Orange for high risk" time="0.0033" asserts="0" success="True" result="Success" executed="True" />
-                  <test-case description="Should return Yellow for medium risk" name="RiskCalculator.Risk Color Classification.Should return Yellow for medium risk" time="0.0028" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return Orange for high risk" name="RiskCalculator.Risk Color Classification.Should return Orange for high risk" time="0.0036" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return Yellow for medium risk" name="RiskCalculator.Risk Color Classification.Should return Yellow for medium risk" time="0.0027" asserts="0" success="True" result="Success" executed="True" />
                   <test-case description="Should return Green for low risk" name="RiskCalculator.Risk Color Classification.Should return Green for low risk" time="0.0029" asserts="0" success="True" result="Success" executed="True" />
                 </results>
               </test-suite>

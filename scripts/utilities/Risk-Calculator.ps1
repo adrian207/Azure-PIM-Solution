@@ -66,8 +66,9 @@ class RiskCalculator {
         $totalWeight += $this.RiskFactors.History.Weight
         
         # Normalize to 0-10 scale (avoid division by zero)
+        # Individual risk functions already return 0-10, so we just need weighted average
         if ($totalWeight -gt 0) {
-            return ($totalScore / $totalWeight) * 10
+            return $totalScore / $totalWeight
         }
         return 0.0
     }

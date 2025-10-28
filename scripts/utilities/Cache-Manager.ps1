@@ -24,7 +24,8 @@ class CacheManager {
         # Check in-memory cache first
         if ($this.InMemoryCache.ContainsKey($Key)) {
             $item = $this.InMemoryCache[$Key]
-            if ($item.ExpiresAt -gt (Get-Date)) {
+            $expiresAt = [DateTime]::Parse($item.ExpiresAt)
+            if ($expiresAt -gt (Get-Date)) {
                 return $true
             } else {
                 $this.InMemoryCache.Remove($Key)
@@ -35,7 +36,8 @@ class CacheManager {
         $filePath = Join-Path $this.CacheDir "$Key.json"
         if (Test-Path $filePath) {
             $cachedData = Get-Content $filePath | ConvertFrom-Json
-            if ($cachedData.ExpiresAt -gt (Get-Date)) {
+            $expiresAt = [DateTime]::Parse($cachedData.ExpiresAt)
+            if ($expiresAt -gt (Get-Date)) {
                 # Load into memory cache
                 $this.InMemoryCache[$Key] = $cachedData
                 return $true
@@ -98,7 +100,8 @@ class CacheManager {
 
         foreach ($key in $this.InMemoryCache.Keys) {
             $item = $this.InMemoryCache[$key]
-            if ($item.ExpiresAt -lt $now) {
+            $expiresAt = [DateTime]::Parse($item.ExpiresAt)
+            if ($expiresAt -lt $now) {
                 $keysToRemove += $key
             }
         }
@@ -111,7 +114,8 @@ class CacheManager {
         if (Test-Path $this.CacheDir) {
             Get-ChildItem $this.CacheDir -Filter "*.json" | ForEach-Object {
                 $cachedData = Get-Content $_.FullName | ConvertFrom-Json
-                if ($cachedData.ExpiresAt -lt $now) {
+                $expiresAt = [DateTime]::Parse($cachedData.ExpiresAt)
+                if ($expiresAt -lt $now) {
                     Remove-Item $_.FullName -Force
                 }
             }

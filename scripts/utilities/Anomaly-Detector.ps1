@@ -175,11 +175,17 @@ class AnomalyDetector {
         }
         
         # Update baseline
-        if ($userBaseline) {
-            $userBaseline.RecentRequests += $Event.Timestamp
-            $userBaseline.RecentRequests = $userBaseline.RecentRequests | Where-Object {
-                [DateTime]::Parse($_) -gt [DateTime]::Now.AddDays(-30)
+        if ($userBaseline -and $Event.Timestamp) {
+            # Ensure RecentRequests is an array
+            if ($null -eq $userBaseline.RecentRequests) {
+                $userBaseline.RecentRequests = @()
             }
+            # Add new timestamp
+            $userBaseline.RecentRequests = @($userBaseline.RecentRequests) + $Event.Timestamp
+            # Clean old requests
+            $userBaseline.RecentRequests = @($userBaseline.RecentRequests | Where-Object {
+                $_ -and ([DateTime]::Parse($_) -gt [DateTime]::Now.AddDays(-30))
+            })
         }
         
         return $score
@@ -220,9 +226,9 @@ class AnomalyDetector {
     }
 
     [string] CalculateSeverity([double]$RiskScore) {
-        if ($RiskScore -ge 5.0) { return "Critical" }
-        if ($RiskScore -ge 3.0) { return "High" }
-        if ($RiskScore -ge 2.0) { return "Medium" }
+        if ($RiskScore -ge 8.0) { return "Critical" }
+        if ($RiskScore -ge 5.0) { return "High" }
+        if ($RiskScore -ge 3.0) { return "Medium" }
         return "Low"
     }
 
