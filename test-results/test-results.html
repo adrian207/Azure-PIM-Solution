@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure PIM Solution - Test Results</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #0078d4; border-bottom: 3px solid #0078d4; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0; }
+        .metric { background: #f8f9fa; padding: 20px; border-radius: 4px; text-align: center; }
+        .metric-value { font-size: 2em; font-weight: bold; margin: 10px 0; }
+        .passed { color: #28a745; }
+        .failed { color: #dc3545; }
+        .skipped { color: #ffc107; }
+        .test-list { list-style: none; padding: 0; }
+        .test-item { padding: 10px; margin: 5px 0; border-left: 4px solid #28a745; background: #f8f9fa; }
+        .test-item.failed { border-left-color: #dc3545; }
+        .error-message { color: #dc3545; font-size: 0.9em; margin-top: 5px; }
+        .timestamp { color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Azure PIM Solution - Test Results</h1>
+        <p class="timestamp">Generated: 2025-10-27 18:53:57</p>
+        
+        <div class="summary">
+            <div class="metric">
+                <div>Total Tests</div>
+                <div class="metric-value">79</div>
+            </div>
+            <div class="metric">
+                <div>Passed</div>
+                <div class="metric-value passed">38</div>
+            </div>
+            <div class="metric">
+                <div>Failed</div>
+                <div class="metric-value failed">41</div>
+            </div>
+            <div class="metric">
+                <div>Pass Rate</div>
+                <div class="metric-value">48.1%</div>
+            </div>
+            <div class="metric">
+                <div>Duration</div>
+                <div class="metric-value">9.74s</div>
+            </div>
+        </div>
+        
+        <h2>Test Results by Category</h2><h3>AnomalyDetector.Tests.ps1</h3><ul class='test-list'><li class='test-item passed'>✅ Should initialize with default threshold</li><li class='test-item passed'>✅ Should initialize with empty baselines</li><li class='test-item passed'>✅ Should initialize with empty pattern signatures</li><li class='test-item failed'>❌ Should detect after-hours access (midnight-6am) as high risk<div class='error-message'>Expected the actual value to be greater than 2.0, but got 1.5.</div></li><li class='test-item failed'>❌ Should detect business hours access as low risk<div class='error-message'>Expected 0.0, but got 1.5.</div></li><li class='test-item passed'>✅ Should detect weekend access as elevated risk</li><li class='test-item passed'>✅ Should detect high-privilege role access as elevated risk</li><li class='test-item passed'>✅ Should detect new role usage as elevated risk</li><li class='test-item failed'>❌ Should detect high frequency requests as elevated risk<div class='error-message'>Exception calling "Parse" with "1" argument(s): "String '2025-10-27T18:53:48.8266384-07:002025-10-27T18:52:48.8669460-07:00' was not recognized as a valid DateTime."</div></li><li class='test-item passed'>✅ Should calculate risk score for normal event</li><li class='test-item passed'>✅ Should calculate higher risk for suspicious event</li><li class='test-item failed'>❌ Should detect anomalies above threshold<div class='error-message'>Exception calling "Parse" with "1" argument(s): "String '' was not recognized as a valid DateTime."</div></li><li class='test-item failed'>❌ Should include severity in anomaly results<div class='error-message'>Exception calling "Parse" with "1" argument(s): "String '' was not recognized as a valid DateTime."</div></li><li class='test-item failed'>❌ Should include recommendations in anomaly results<div class='error-message'>Exception calling "Parse" with "1" argument(s): "String '' was not recognized as a valid DateTime."</div></li><li class='test-item passed'>✅ Should classify risk score 8+ as Critical</li><li class='test-item failed'>❌ Should classify risk score 5-7.9 as High<div class='error-message'>Expected strings to be the same, but they were different.
+Expected length: 4
+Actual length:   8
+Strings differ at index 0.
+Expected: 'High'
+But was:  'Critical'
+           ^</div></li><li class='test-item failed'>❌ Should classify risk score 3-4.9 as Medium<div class='error-message'>Expected strings to be the same, but they were different.
+Expected length: 6
+Actual length:   4
+Strings differ at index 0.
+Expected: 'Medium'
+But was:  'High'
+           ^</div></li><li class='test-item passed'>✅ Should classify risk score <3 as Low</li></ul><h3>BulkOperations.Tests.ps1</h3><ul class='test-list'><li class='test-item failed'>❌ Should process all items<div class='error-message'>The term 'Invoke-BulkOperation' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should apply operation correctly<div class='error-message'>The term 'Invoke-BulkOperation' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should handle empty array<div class='error-message'>The term 'Invoke-BulkOperation' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should respect batch size<div class='error-message'>Expected no exception to be thrown, but an exception "The term 'Invoke-BulkOperation' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again." was thrown from C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:49 char:15
+    +             { Invoke-BulkOperation -Operation $operation -Items $item …
+    +               ~~~~~~~~~~~~~~~~~~~~.</div></li><li class='test-item failed'>❌ Should handle errors gracefully<div class='error-message'>Expected no exception to be thrown, but an exception "The term 'Invoke-BulkOperation' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again." was thrown from C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:63 char:15
+    +             { Invoke-BulkOperation -Operation $operation -Items $item …
+    +               ~~~~~~~~~~~~~~~~~~~~.</div></li><li class='test-item failed'>❌ Should process with custom MaxParallel<div class='error-message'>The term 'Invoke-BulkOperation' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should process user assignments<div class='error-message'>The term 'Set-BulkPIMRoleAssignments' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should include user ID in results<div class='error-message'>The term 'Set-BulkPIMRoleAssignments' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should use provided duration<div class='error-message'>The term 'Set-BulkPIMRoleAssignments' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should use provided justification<div class='error-message'>The term 'Set-BulkPIMRoleAssignments' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should handle large user lists<div class='error-message'>The term 'Set-BulkPIMRoleAssignments' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should accept resource group parameter<div class='error-message'>The term 'Get-BulkAzureResources' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should filter by resource type<div class='error-message'>The term 'Get-BulkAzureResources' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should use cache when specified<div class='error-message'>The term 'Get-BulkAzureResources' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should complete bulk operation within reasonable time<div class='error-message'>The term 'Invoke-BulkOperation' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.</div></li><li class='test-item failed'>❌ Should handle concurrent operations<div class='error-message'>Expected no exception to be thrown, but an exception "The term 'Invoke-BulkOperation' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again." was thrown from C:\Github\Azure PIM Solution\tests\unit\BulkOperations.Tests.ps1:196 char:15
+    +             { Invoke-BulkOperation -Operation $operation -Items $item …
+    +               ~~~~~~~~~~~~~~~~~~~~.</div></li></ul><h3>CacheManager.Tests.ps1</h3><ul class='test-list'><li class='test-item passed'>✅ Should initialize with cache directory</li><li class='test-item passed'>✅ Should initialize with default expiration</li><li class='test-item passed'>✅ Should initialize with empty in-memory cache</li><li class='test-item failed'>❌ Should store and retrieve simple value<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li><li class='test-item failed'>❌ Should store and retrieve complex object<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li><li class='test-item passed'>✅ Should return null for non-existent key</li><li class='test-item passed'>✅ Should use custom expiration time</li><li class='test-item failed'>❌ Should return true for existing key<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li><li class='test-item passed'>✅ Should return false for non-existent key</li><li class='test-item failed'>❌ Should return false for expired key<div class='error-message'>Expected $false, but got $true.</div></li><li class='test-item failed'>❌ Should not return expired items<div class='error-message'>Expected $null or empty, but got 'value'.</div></li><li class='test-item failed'>❌ Should clear expired items from memory<div class='error-message'>Expected $false, but got $true.</div></li><li class='test-item failed'>❌ Should persist cache to disk<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li><li class='test-item failed'>❌ Should load from disk if not in memory<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li><li class='test-item passed'>✅ Should remove expired disk cache files</li><li class='test-item failed'>❌ Should clear all cache items<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li><li class='test-item failed'>❌ Should clear disk cache files<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li><li class='test-item failed'>❌ Should handle multiple rapid operations<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li><li class='test-item failed'>❌ Should retrieve from memory faster than disk<div class='error-message'>Cannot find an overload for "Set" and the argument count: "2".</div></li></ul><h3>RiskCalculator.Tests.ps1</h3><ul class='test-list'><li class='test-item passed'>✅ Should initialize with risk factors</li><li class='test-item passed'>✅ Should have correct risk factor weights</li><li class='test-item passed'>✅ Should initialize with risk weights</li><li class='test-item failed'>❌ Should return high risk for midnight-6am access<div class='error-message'>Expected 10.0, but got 5.</div></li><li class='test-item failed'>❌ Should return low risk for business hours access<div class='error-message'>Expected 1.0, but got 2.</div></li><li class='test-item failed'>❌ Should return medium risk for after-hours access<div class='error-message'>Expected 5.0, but got 1.</div></li><li class='test-item passed'>✅ Should return high risk for weekend access</li><li class='test-item passed'>✅ Should return low risk for weekday access</li><li class='test-item passed'>✅ Should return medium risk for unknown location</li><li class='test-item passed'>✅ Should return high risk for high-risk countries</li><li class='test-item passed'>✅ Should return low risk for normal locations</li><li class='test-item passed'>✅ Should return critical risk for Global Administrator</li><li class='test-item passed'>✅ Should return high risk for privileged roles</li><li class='test-item passed'>✅ Should return medium risk for standard admin roles</li><li class='test-item passed'>✅ Should return low risk for low-privilege roles</li><li class='test-item failed'>❌ Should calculate risk score within 0-10 range<div class='error-message'>Expected the actual value to be less than or equal to 10.0, but got 30.</div></li><li class='test-item passed'>✅ Should calculate higher risk for suspicious event</li><li class='test-item failed'>❌ Should not divide by zero with empty event<div class='error-message'>Expected no exception to be thrown, but an exception "Exception calling "Parse" with "1" argument(s): "String '' was not recognized as a valid DateTime."" was thrown from C:\Github\Azure PIM Solution\scripts\utilities\Risk-Calculator.ps1:76 char:9
+    +         $hour = [DateTime]::Parse($Event.Timestamp).Hour
+    +         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.</div></li><li class='test-item passed'>✅ Should classify score 8+ as Critical</li><li class='test-item passed'>✅ Should classify score 6-7.9 as High</li><li class='test-item passed'>✅ Should classify score 4-5.9 as Medium</li><li class='test-item passed'>✅ Should classify score <4 as Low</li><li class='test-item passed'>✅ Should return Red for critical risk</li><li class='test-item passed'>✅ Should return Orange for high risk</li><li class='test-item passed'>✅ Should return Yellow for medium risk</li><li class='test-item passed'>✅ Should return Green for low risk</li></ul>    </div>
+</body>
+</html>
