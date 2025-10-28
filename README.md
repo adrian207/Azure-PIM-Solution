@@ -133,6 +133,7 @@ cd scripts
 | [Time-Based Access Controls](docs/access-controls/time-based-access-controls.md) | Schedule-based and business hours access | 1.5 hours |
 | [ServiceNow/Jira/Slack/Teams](docs/integrations/servicenow-jira-slack.md) | Enterprise collaboration integrations | 6 hours |
 | [Advanced Analytics Suite](docs/analytics/advanced-analytics-suite.md) | Predictive analytics & AI reporting | 12 hours |
+| [Visual Workflow Builder](docs/automation/visual-workflow-builder.md) | Drag-and-drop workflow designer | 30 min - 9 hours |
 | [PASS Dashboard](docs/reporting/pass-dashboard.md) | Privileged Access Security Score | 1 hour |
 | [Integration Guide](docs/integration-guide.md) | API integration and automation | 1 hour |
 | [Deployment Guide](docs/operations/deployment-guide.md) | Technical deployment instructions | 2 hours |
