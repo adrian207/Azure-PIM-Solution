@@ -65,6 +65,8 @@ class AnomalyDetector {
     }
 
     [double] CheckTimeAnomaly([object]$Event) {
+        if (-not $Event.Timestamp) { return 0.0 }
+        
         $hour = [DateTime]::Parse($Event.Timestamp).Hour
         $score = 0.0
         
@@ -144,12 +146,14 @@ class AnomalyDetector {
 
     [double] CheckFrequencyAnomaly([object]$Event) {
         $score = 0.0
+        if (-not $Event.Timestamp) { return 0.0 }
+        
         $userBaseline = $this.GetUserBaseline($Event.UserPrincipalName)
         
         if ($userBaseline) {
             # Calculate requests in last 24 hours
             $recentRequests = $userBaseline.RecentRequests | Where-Object {
-                ([DateTime]::Parse($_) -gt [DateTime]::Parse($Event.Timestamp).AddHours(-24))
+                $_ -and ([DateTime]::Parse($_) -gt [DateTime]::Parse($Event.Timestamp).AddHours(-24))
             }
             
             $requestCount = $recentRequests.Count
@@ -278,5 +282,6 @@ class AnomalyDetector {
     }
 }
 
-Export-ModuleMember -Type AnomalyDetector
+# Classes are automatically exported in PowerShell 5.0+
+# No explicit export needed for classes
 

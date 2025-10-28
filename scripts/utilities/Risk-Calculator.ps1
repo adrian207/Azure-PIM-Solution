@@ -73,6 +73,8 @@ class RiskCalculator {
     }
 
     [double] EvaluateTimeRisk([object]$Event) {
+        if (-not $Event.Timestamp) { return 5.0 }  # Unknown time = medium risk
+        
         $hour = [DateTime]::Parse($Event.Timestamp).Hour
         
         # High risk: midnight to 6am
@@ -95,6 +97,8 @@ class RiskCalculator {
     }
 
     [double] EvaluateDayRisk([object]$Event) {
+        if (-not $Event.Timestamp) { return 5.0 }  # Unknown day = medium risk
+        
         $dayOfWeek = [DateTime]::Parse($Event.Timestamp).DayOfWeek
         
         # High risk: weekends
@@ -173,5 +177,6 @@ class RiskCalculator {
     }
 }
 
-Export-ModuleMember -Type RiskCalculator
+# Classes are automatically exported in PowerShell 5.0+
+# No explicit export needed for classes
 

@@ -117,6 +117,6 @@ class CacheManager {
     }
 }
 
-# Export the class
-Export-ModuleMember -Type CacheManager
+# Classes are automatically exported in PowerShell 5.0+
+# No explicit export needed for classes
 

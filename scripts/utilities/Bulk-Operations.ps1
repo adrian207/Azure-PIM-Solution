@@ -34,6 +34,9 @@ function Invoke-BulkOperation {
     $totalBatches = $batches.Count
     $batchNum = 0
 
+    # Convert scriptblock to string for parallel execution
+    $operationString = $Operation.ToString()
+
     foreach ($batch in $batches) {
         $batchNum++
         
@@ -46,7 +49,8 @@ function Invoke-BulkOperation {
 
         # Process batch in parallel (limited by MaxParallel)
         $batchResults = $batch | ForEach-Object -Parallel {
-            $result = $using:Operation.Invoke($_)
+            $op = [scriptblock]::Create($using:operationString)
+            $result = & $op $_
             return $result
         } -ThrottleLimit $MaxParallel
 
