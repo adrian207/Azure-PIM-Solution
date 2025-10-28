@@ -352,8 +352,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Adrian Johnson**
 - Email: adrian207@gmail.com
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourusername)
+- GitHub: [@adrian207](https://github.com/adrian207)
+- LinkedIn: [Your LinkedIn](https://linkedin.com/in/adrian207)
 
 ---
 
