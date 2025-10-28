@@ -27,9 +27,41 @@ The Azure PIM Solution provides a complete privileged identity management system
 
 <div align="center">
 
-[![Solution Architecture](docs/assets/architecture-diagram.png)](docs/design/architecture-overview.md)
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    Azure PIM Solution Architecture              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    │
+│  │   Web Portal │    │  Mobile Apps │    │  PowerShell  │    │
+│  │  (React UI)  │    │ (iOS/Android)│    │   Scripts    │    │
+│  └──────┬───────┘    └──────┬───────┘    └──────┬───────┘    │
+│         │                   │                   │             │
+│         └───────────────────┼───────────────────┘             │
+│                             │                                 │
+│                    ┌────────▼────────┐                        │
+│                    │  Workflow Engine │                        │
+│                    │  (Visual Builder)│                        │
+│                    └────────┬────────┘                        │
+│                             │                                 │
+│         ┌───────────────────┼───────────────────┐             │
+│         │                   │                   │             │
+│  ┌──────▼───────┐  ┌────────▼────────┐  ┌──────▼───────┐    │
+│  │   Azure PIM  │  │  Azure Sentinel │  │ Log Analytics│    │
+│  │   (Access)   │  │ (Threat Detect) │  │  (Auditing)  │    │
+│  └──────┬───────┘  └────────┬────────┘  └──────┬───────┘    │
+│         │                   │                   │             │
+│         └───────────────────┼───────────────────┘             │
+│                             │                                 │
+│                    ┌────────▼────────┐                        │
+│                    │   Power BI      │                        │
+│                    │   Dashboards    │                        │
+│                    └─────────────────┘                        │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-*Cloud-native architecture built on Microsoft Azure*
+*Cloud-native architecture built on Microsoft Azure* • [View detailed architecture](docs/design/architecture-overview.md)
 
 </div>
 
