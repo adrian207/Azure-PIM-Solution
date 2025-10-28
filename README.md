@@ -124,6 +124,7 @@ cd scripts
 | [Zero-Trust Architecture](docs/security/zero-trust-architecture.md) | Zero-trust security framework | 1.5 hours |
 | [Automated Incident Response](docs/security/automated-incident-response.md) | Security automation & response | 1 hour |
 | [Credential Rotation](docs/security/credential-rotation-automation.md) | Automated credential rotation | 1 hour |
+| [Quantum-Safe Cryptography](docs/security/quantum-safe-cryptography.md) | Post-quantum encryption with rollback | 7 hours |
 | [Redis Caching](docs/performance/distributed-caching-redis.md) | Distributed caching for performance | 45 min |
 | [Query Optimization](docs/performance/database-query-optimization.md) | 10x faster database queries | 1 hour |
 | [Bulk Operations API](docs/performance/bulk-operations-api.md) | 10x faster bulk processing | 1.5 hours |
