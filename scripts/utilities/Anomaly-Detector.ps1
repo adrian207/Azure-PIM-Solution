@@ -67,21 +67,22 @@ class AnomalyDetector {
     [double] CheckTimeAnomaly([object]$Event) {
         if (-not $Event.Timestamp) { return 0.0 }
         
-        $hour = [DateTime]::Parse($Event.Timestamp).Hour
+        $dateTime = [DateTime]::Parse($Event.Timestamp).ToUniversalTime()
+        $hour = $dateTime.Hour
         $score = 0.0
         
-        # Access outside business hours (9am-5pm)
+        # Access outside business hours (9am-5pm UTC)
         if ($hour -lt 9 -or $hour -gt 17) {
             $score += 1.5
         }
         
-        # Access during typical off-hours (midnight-6am)
+        # Access during typical off-hours (midnight-6am UTC)
         if ($hour -ge 0 -and $hour -lt 6) {
             $score += 2.5  # High risk
         }
         
         # Access on weekends
-        $dayOfWeek = [DateTime]::Parse($Event.Timestamp).DayOfWeek
+        $dayOfWeek = $dateTime.DayOfWeek
         if ($dayOfWeek -in @('Saturday', 'Sunday')) {
             $score += 1.5
         }
@@ -219,9 +220,9 @@ class AnomalyDetector {
     }
 
     [string] CalculateSeverity([double]$RiskScore) {
-        if ($riskScore -ge 5.0) { return "Critical" }
-        if ($riskScore -ge 3.0) { return "High" }
-        if ($riskScore -ge 2.0) { return "Medium" }
+        if ($RiskScore -ge 5.0) { return "Critical" }
+        if ($RiskScore -ge 3.0) { return "High" }
+        if ($RiskScore -ge 2.0) { return "Medium" }
         return "Low"
     }
 

@@ -64,11 +64,13 @@ class CacheManager {
         return $cachedData.Data
     }
 
-    [void] Set([string]$Key, [object]$Value, [int]$ExpirationMinutes = 0) {
-        if ($ExpirationMinutes -eq 0) {
-            $ExpirationMinutes = $this.DefaultExpirationMinutes
-        }
-
+    # Overload with 2 parameters (uses default expiration)
+    [void] Set([string]$Key, [object]$Value) {
+        $this.Set($Key, $Value, $this.DefaultExpirationMinutes)
+    }
+    
+    # Overload with 3 parameters (custom expiration)
+    [void] Set([string]$Key, [object]$Value, [int]$ExpirationMinutes) {
         $cachedItem = [PSCustomObject]@{
             Data = $Value
             CreatedAt = (Get-Date).ToString("o")

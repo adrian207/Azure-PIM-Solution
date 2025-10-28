@@ -75,31 +75,31 @@ class RiskCalculator {
     [double] EvaluateTimeRisk([object]$Event) {
         if (-not $Event.Timestamp) { return 5.0 }  # Unknown time = medium risk
         
-        $hour = [DateTime]::Parse($Event.Timestamp).Hour
+        $hour = [DateTime]::Parse($Event.Timestamp).ToUniversalTime().Hour
         
-        # High risk: midnight to 6am
+        # High risk: midnight to 6am UTC
         if ($hour -ge 0 -and $hour -lt 6) {
             return 10.0
         }
         
-        # Medium risk: after hours (6pm-midnight)
+        # Medium risk: after hours (6pm-midnight UTC)
         if ($hour -ge 18) {
             return 5.0
         }
         
-        # Low risk: business hours (9am-5pm)
+        # Low risk: business hours (9am-5pm UTC)
         if ($hour -ge 9 -and $hour -lt 17) {
             return 1.0
         }
         
-        # Low-medium risk: early morning (6am-9am)
+        # Low-medium risk: early morning (6am-9am UTC)
         return 2.0
     }
 
     [double] EvaluateDayRisk([object]$Event) {
         if (-not $Event.Timestamp) { return 5.0 }  # Unknown day = medium risk
         
-        $dayOfWeek = [DateTime]::Parse($Event.Timestamp).DayOfWeek
+        $dayOfWeek = [DateTime]::Parse($Event.Timestamp).ToUniversalTime().DayOfWeek
         
         # High risk: weekends
         if ($dayOfWeek -in @('Saturday', 'Sunday')) {
@@ -163,16 +163,16 @@ class RiskCalculator {
     }
 
     [string] GetRiskCategory([double]$RiskScore) {
-        if ($riskScore -ge 8.0) { return "Critical" }
-        if ($riskScore -ge 6.0) { return "High" }
-        if ($riskScore -ge 4.0) { return "Medium" }
+        if ($RiskScore -ge 8.0) { return "Critical" }
+        if ($RiskScore -ge 6.0) { return "High" }
+        if ($RiskScore -ge 4.0) { return "Medium" }
         return "Low"
     }
 
     [string] GetRiskColor([double]$RiskScore) {
-        if ($riskScore -ge 8.0) { return "Red" }
-        if ($riskScore -ge 6.0) { return "Orange" }
-        if ($riskScore -ge 4.0) { return "Yellow" }
+        if ($RiskScore -ge 8.0) { return "Red" }
+        if ($RiskScore -ge 6.0) { return "Orange" }
+        if ($RiskScore -ge 4.0) { return "Yellow" }
         return "Green"
     }
 }

@@ -184,6 +184,29 @@
         "18:00"
       ]
     }
+  },
+  "display": {
+    "timezone": {
+      "displayTimezone": "Pacific Standard Time",
+      "storageTimezone": "UTC",
+      "autoDetect": false,
+      "dateFormat": "yyyy-MM-dd HH:mm:ss",
+      "use24HourFormat": true,
+      "showTimezoneInDisplay": true,
+      "comment": "All logs stored in UTC. Display timezone for user presentation only."
+    },
+    "commonTimezones": {
+      "UTC": "UTC",
+      "Eastern": "Eastern Standard Time",
+      "Central": "Central Standard Time",
+      "Mountain": "Mountain Standard Time",
+      "Pacific": "Pacific Standard Time",
+      "GMT": "GMT Standard Time",
+      "CET": "Central European Standard Time",
+      "JST": "Tokyo Standard Time",
+      "AEST": "AUS Eastern Standard Time",
+      "IST": "India Standard Time"
+    }
   }
 }
 
